@@ -9,7 +9,10 @@ const setSuperHero = (heroes)=>{
     const hero = {
         name: randomHero.name,
         intelligence: randomHero.powerstats.intelligence,
+        strengthMax: randomHero.powerstats.strength,
         strength: randomHero.powerstats.strength,
+        rightArmEffect: false,
+        leftArmEffect: false,
         speed: randomHero.powerstats.speed,
         durability: randomHero.powerstats.durability,
         power: randomHero.powerstats.power,
@@ -27,7 +30,10 @@ const setVillainZarate = (heroes)=>{
     const villainObject = {
         name: villain[0].name,
         intelligence: villain[0].powerstats.intelligence,
+        strengthMax: villain[0].powerstats.strength,
         strength: villain[0].powerstats.strength,
+        rightArmEffect: false,
+        leftArmEffect: false,
         speed: villain[0].powerstats.speed,
         durability: villain[0].powerstats.durability,
         power: villain[0].powerstats.power,
