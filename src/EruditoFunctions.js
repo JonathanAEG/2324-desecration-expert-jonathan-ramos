@@ -26,23 +26,28 @@ const eruditoLogic = (currentHero, adversary, heroArray)=>{
     console.log(`El Erudito X.G. a aparecido en la sala`)
     console.log(`Ha perdido las gafas,  entre el caos ${heroArray[currentHero].name} las ha recogido y se las ha puesto`)
 
-    // const anger = Dice.dice1D20();
+    const anger = Dice.dice1D20();
 
 
     if(anger >= 1 && anger <= 3){
 
-        console.log(`FAIL!! ${heroArray[currentHero].name} obtiene un ${anger} y se lesiona el brazo izquierdo`);
+        if(heroArray[currentHero].leftArmEffect !== true){
 
-        heroArray[currentHero].leftArmEffect = true;
-        heroArray = applyFumble(currentHero, heroArray);
+            console.log(`FAIL!! ${heroArray[currentHero].name} obtiene un ${anger} y se lesiona el brazo izquierdo`);
+
+            heroArray[currentHero].leftArmEffect = true;
+            heroArray = applyFumble(currentHero, heroArray);
+        }
 
     }else if(anger >= 4 && anger <= 6){
         
-        console.log(`FAIL!! ${heroArray[currentHero].name} obtiene un ${anger} y se lesiona el brazo derecho`);
+        if(heroArray[currentHero].rightArmEffect !== true){
 
-        heroArray[currentHero].rightArmEffect = true;
-        heroArray = applyFumble(currentHero, heroArray);
+            console.log(`FAIL!! ${heroArray[currentHero].name} obtiene un ${anger} y se lesiona el brazo derecho`);
 
+            heroArray[currentHero].rightArmEffect = true;
+            heroArray = applyFumble(currentHero, heroArray);
+        }
     }
     // else if(anger >= 7 && anger <= 9){
     //     console.log("caos");
@@ -64,7 +69,13 @@ const eruditoLogic = (currentHero, adversary, heroArray)=>{
     //     console.log("endemoniado");
     // }
 
+    if(heroArray[currentHero].rightArmEffect === true && heroArray[currentHero].leftArmEffect === true){
+            
+        heroArray[currentHero].strength = heroArray[currentHero].strengthMax * 0.25;
+        console.log(`${heroArray[currentHero].name} se ha lesionado los dos brazos.`)
+    }
     console.log(heroArray);
+
     return heroArray;
 }
 
