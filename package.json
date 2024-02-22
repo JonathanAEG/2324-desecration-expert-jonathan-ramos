@@ -1,0 +1,11 @@
+{
+  "name": "2324-desecration-expert-jonathan-ramos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "author": "",
+  "license": "ISC"
+}
