@@ -140,7 +140,7 @@ const successAttack = (heroArray, currentHero, adversary)=>{
 
 const normalAttack = (heroArray, currentHero, diceValue)=>{
 
-    return Math.round((heroArray[currentHero].power + heroArray[currentHero].strength) * diceValue /100);
+    return Math.ceil((heroArray[currentHero].power + heroArray[currentHero].strength) * diceValue /100);
 }
 
 const criticalAttack = (heroArray, currentHero, diceValue)=>{
@@ -148,23 +148,23 @@ const criticalAttack = (heroArray, currentHero, diceValue)=>{
 
     if(diceValue === 18){
         
-        const normalDamage = Math.round((heroArray[currentHero].power + heroArray[currentHero].strength) * diceValue /100);
-        const criticalDamage = Math.round(heroArray[currentHero].intelligence * heroArray[currentHero].durability / 100 * Dice.dice1D3());
+        const normalDamage = Math.ceil((heroArray[currentHero].power + heroArray[currentHero].strength) * diceValue /100);
+        const criticalDamage = Math.ceil(heroArray[currentHero].intelligence * heroArray[currentHero].durability / 100 * Dice.dice1D3());
 
         const totalCriticalDamage = normalDamage + criticalDamage;
 
         return totalCriticalDamage;
     }else if(diceValue === 19){
 
-        const normalDamage = Math.round((heroArray[currentHero].power + heroArray[currentHero].strength) * diceValue /100);
-        const criticalDamage = Math.round(heroArray[currentHero].intelligence * heroArray[currentHero].durability / 100 * Dice.dice2D3());
+        const normalDamage = Math.ceil((heroArray[currentHero].power + heroArray[currentHero].strength) * diceValue /100);
+        const criticalDamage = Math.ceil(heroArray[currentHero].intelligence * heroArray[currentHero].durability / 100 * Dice.dice2D3());
         
         const totalCriticalDamage = normalDamage + criticalDamage;
         
         return totalCriticalDamage;
     }else{
-        const normalDamage = Math.round((heroArray[currentHero].power + heroArray[currentHero].strength) * diceValue /100);
-        const criticalDamage = Math.round(heroArray[currentHero].intelligence * heroArray[currentHero].durability / 100 * Dice.dice3D5());
+        const normalDamage = Math.ceil((heroArray[currentHero].power + heroArray[currentHero].strength) * diceValue /100);
+        const criticalDamage = Math.ceil(heroArray[currentHero].intelligence * heroArray[currentHero].durability / 100 * Dice.dice3D5());
         
         const totalCriticalDamage = normalDamage + criticalDamage;
 
@@ -176,9 +176,9 @@ const fumbleAttack = (heroArray, currentHero, diceValue)=>{
 
     if(diceValue === 2){
 
-        return Math.round(heroArray[currentHero].speed / Dice.dice1D3());
+        return Math.ceil(heroArray[currentHero].speed / Dice.dice1D3());
     }else{
-        return Math.round(heroArray[currentHero].speed / Dice.dice4D3());
+        return Math.ceil(heroArray[currentHero].speed / Dice.dice4D3());
     }
 }
 
