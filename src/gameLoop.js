@@ -1,5 +1,5 @@
 const Dice = require("./Dice");
-const { setEruditoSpawn, eruditoLogic } = require("./EruditoFunctions");
+const { setEruditoSpawn, eruditoLogic, createErudito } = require("./EruditoFunctions");
 
 module.exports =  gameLoop = (heroArray)=>{
 
@@ -7,6 +7,7 @@ module.exports =  gameLoop = (heroArray)=>{
     let currentHero = compareInitiative(heroArray);
     let adversary = setAdversary(currentHero, heroArray);
     let eruditoSpawn = setEruditoSpawn();
+    const eruditoXG = createErudito();
 
     let gameOver = false;
 
@@ -17,21 +18,22 @@ module.exports =  gameLoop = (heroArray)=>{
 
     while(!gameOver){
         
-
-        if(eruditoSpawn === 0){
-            heroArray = eruditoLogic(currentHero, adversary, heroArray);
-            
-            eruditoSpawn = setEruditoSpawn();
-        }else{
-            eruditoSpawn--;
-        }
-
         console.log("---------------------------");
         console.log(`Comienza el asalto ${turnIndex}`);
         console.log("---------------------------");
         console.log(`El asalto es para: ${heroArray[currentHero].name}`);
 
         setAttack(heroArray, currentHero, adversary);
+
+        if(eruditoXG.isAlive){
+            if(eruditoSpawn === 0){
+                eruditoLogic(currentHero, adversary, heroArray, eruditoXG);
+                
+                eruditoSpawn = setEruditoSpawn();
+            }else{
+                eruditoSpawn--;
+            }
+        }
 
         turnIndex ++;
         currentHero = setcurrentHero(currentHero, heroArray);
