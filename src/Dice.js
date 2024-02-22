@@ -5,6 +5,10 @@ module.exports = class Dice {
         return Math.floor(Math.random()*(100)+1)
     }
 
+    static dice1D10() {
+        return Math.floor(Math.random()*(10)+1)
+    }
+
     static dice1D20(){
         return Math.floor(Math.random()*(20)+1)
     }

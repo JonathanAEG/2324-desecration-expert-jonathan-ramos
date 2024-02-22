@@ -48,16 +48,21 @@ const eruditoLogic = (currentHero, adversary, heroArray)=>{
             heroArray[currentHero].rightArmEffect = true;
             heroArray = applyFumble(currentHero, heroArray);
         }
+    }else if(anger >= 7 && anger <= 9){
+        console.log(`${heroArray[currentHero].name} obtiene un ${anger}, pierde la memoria y se ve incapaz de atacar. El Erudito X.G desaparece y el combate vuelve a la normalidad. Todo parece haber sido una ilusión.`);
+
+
+    }else if(anger >= 10 && anger <= 13){
+
+        const damage = Dice.dice1D10();
+
+        //Aplicar daño erudito
+
+        console.log(`${heroArray[currentHero].name} obtiene un ${anger}. El Eudito grita "tú eres tonto". Momento en el que ${heroArray[currentHero].name} descubre su posición y le ataca aplicandole ${damage} de daño.`);
+
+
     }
-    // else if(anger >= 7 && anger <= 9){
-    //     console.log("caos");
-
-
-    // }else if(anger >= 10 && anger <= 13){
-    //     console.log("Aullido");
-
-
-    // }else if(anger >= 14 && anger <= 16){
+    // else if(anger >= 14 && anger <= 16){
     //     console.log("granuja");
 
 
